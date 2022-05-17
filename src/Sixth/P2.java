@@ -13,15 +13,15 @@ public class P2 {
 
         try {
             InputStream lenna = new FileInputStream("lenna.png");
-            OutputStream lennaWrite = new FileOutputStream("output.txt");
-            int n = lenna.read(buffer);
-            for (int i = 0; i < buffer.length; i++) {
-                String data = String.format("%02X ", buffer[i]);
-                System.out.print(data);
+            OutputStream lennaWrite = new FileOutputStream("output.png");
+
+            int n;
+            while ((n = lenna.read(buffer)) != -1) {
                 lennaWrite.write(buffer,0,n);
             }
             lenna.close();
             lennaWrite.close();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
